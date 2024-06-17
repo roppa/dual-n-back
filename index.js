@@ -1,4 +1,4 @@
-export const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i"];
+export const letters = ["s", "t", "u", "v", "w", "x", "y", "z"];
 
 export const getRandomPosition = () => Math.floor(Math.random() * 9);
 

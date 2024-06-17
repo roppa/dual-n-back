@@ -5,11 +5,11 @@ import {
   percentageCorrect,
 } from "./index.js";
 
-let n = 1; // n-back level
+let n = 2;
 let roundDurationMs = 3000;
 let game = newGame({
   n,
-  gameDurationMs: 20000,
+  gameDurationMs: 60000,
   counter: 0,
   history: [],
   userInputHistory: [],

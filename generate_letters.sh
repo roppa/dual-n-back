@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the list of letters
-letters=("a" "b" "c" "d" "e" "f" "g" "h" "i")
+letters=("s" "t" "u" "v" "w" "x" "y" "z")
 
 # Check if ffmpeg is installed
 if ! command -v ffmpeg &> /dev/null

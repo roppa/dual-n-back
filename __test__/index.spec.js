@@ -8,9 +8,9 @@ import {
 } from "..";
 
 describe("getRandomLetter", () => {
-  test("should return a letter from a to i", () => {
+  test("should return a letter from s to z", () => {
     const letter = getRandomLetter();
-    expect(letter).toMatch(/[a-i]/);
+    expect(letter).toMatch(/[s-z]/);
   });
 });
 
@@ -239,7 +239,7 @@ describe("dualNBack", () => {
 describe("generateRound", () => {
   test("should generate a round", () => {
     const round = generateRound();
-    expect(round.letter).toMatch(/[a-i]/);
+    expect(round.letter).toMatch(/[s-z]/);
     expect(round.position).toBeGreaterThanOrEqual(0);
     expect(round.position).toBeLessThanOrEqual(8);
   });
