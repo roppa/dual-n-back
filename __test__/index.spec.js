@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import {
   dualNBack,
   generateRound,
@@ -5,6 +9,7 @@ import {
   getRandomPosition,
   newGame,
   percentageCorrect,
+  save,
 } from "..";
 
 describe("getRandomLetter", () => {
@@ -256,5 +261,18 @@ describe("newGame", () => {
       userInputHistory: [],
       stats: { correct: 0, incorrect: 0, total: 0, percentage: 0 },
     });
+  });
+});
+
+describe("save should save users stats", () => {
+  test("should save users stats to local storage", () => {
+    const stats = {
+      correct: 10,
+      incorrect: 5,
+      total: 15,
+      percentage: 66,
+    };
+    save(stats);
+    expect(localStorage.getItem("userStats")).toEqual(JSON.stringify([stats]));
   });
 });

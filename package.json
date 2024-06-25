@@ -15,6 +15,7 @@
   "author": "Mark Robson mark.o.robson@gmail.com",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   }
 }

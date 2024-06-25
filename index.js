@@ -70,3 +70,9 @@ export const newGame = ({ n, gameDurationMs }) => ({
     percentage: 0,
   },
 });
+
+export const save = (stats) => {
+  const userStats = JSON.parse(localStorage.getItem("userStats")) || [];
+  userStats.push(stats);
+  localStorage.setItem("userStats", JSON.stringify(userStats));
+};

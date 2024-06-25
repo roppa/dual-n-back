@@ -3,6 +3,7 @@ import {
   dualNBack,
   generateRound,
   percentageCorrect,
+  save,
 } from "./index.js";
 
 const roundDurationMs = 3000;
@@ -120,6 +121,7 @@ async function startGame() {
   });
 
   game.stats = percentageCorrect(game.results);
+  save(game.stats);
   showOverviewScreen();
   document.getElementById("results").textContent = JSON.stringify(
     game.stats,
