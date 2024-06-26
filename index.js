@@ -76,3 +76,7 @@ export const save = (stats) => {
   userStats.push(stats);
   localStorage.setItem("userStats", JSON.stringify(userStats));
 };
+
+export const getStats = () => {
+  return JSON.parse(localStorage.getItem("userStats")) || [];
+};

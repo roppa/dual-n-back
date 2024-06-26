@@ -4,6 +4,7 @@ import {
   generateRound,
   percentageCorrect,
   save,
+  getStats,
 } from "./index.js";
 
 const roundDurationMs = 3000;
@@ -65,7 +66,6 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function startGame() {
   n = parseInt(document.getElementById("n").value);
-  console.log(n);
   const gameDurationMs =
     parseInt(document.getElementById("duration").value) * 1000;
   document.getElementById("n-counter").textContent = n;
@@ -121,12 +121,22 @@ async function startGame() {
   });
 
   game.stats = percentageCorrect(game.results);
-  save(game.stats);
+  save({ n: game.n, ...game.stats });
+  const fullStats = getStats();
   showOverviewScreen();
-  document.getElementById("results").textContent = JSON.stringify(
-    game.stats,
-    null,
-    2
+  document.getElementById("results").innerHTML = formatStats(fullStats);
+}
+
+function formatStats(stats) {
+  if (stats.length === 0) {
+    return "<ul><li>No stats yet</li></ul>";
+  }
+  return (
+    "<ul>" +
+    stats.map((stat) => {
+      return `<li>N: ${stat.n}, Correct/incorrect: ${stat.correct}/${stat.incorrect} (${stat.percentage}%)</li>`;
+    }) +
+    "</ul>"
   );
 }
 

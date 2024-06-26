@@ -10,6 +10,7 @@ import {
   newGame,
   percentageCorrect,
   save,
+  getStats,
 } from "..";
 
 describe("getRandomLetter", () => {
@@ -267,6 +268,7 @@ describe("newGame", () => {
 describe("save should save users stats", () => {
   test("should save users stats to local storage", () => {
     const stats = {
+      n: 2,
       correct: 10,
       incorrect: 5,
       total: 15,
@@ -274,5 +276,19 @@ describe("save should save users stats", () => {
     };
     save(stats);
     expect(localStorage.getItem("userStats")).toEqual(JSON.stringify([stats]));
+  });
+});
+
+describe("read user stats", () => {
+  test("should read user stats from local storage", () => {
+    const stats = {
+      n: 2,
+      correct: 10,
+      incorrect: 5,
+      total: 15,
+      percentage: 66,
+    };
+    localStorage.setItem("userStats", JSON.stringify([stats]));
+    expect(getStats()).toEqual([stats]);
   });
 });
